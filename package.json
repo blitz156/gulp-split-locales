@@ -1,0 +1,39 @@
+{
+  "name": "gulp-split-locales",
+  "version": "0.1.0",
+  "description": "Split css file into separate files by css selector html[lang=\"locale\"]",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:denisborovikov/gulp-split-locales.git"
+  },
+  "bugs": {
+    "url": "https://github.com/denisborovikov/gulp-split-locales/issues"
+  },
+  "homepage": "https://github.com/denisborovikov/gulp-split-locales",
+  "author": {
+    "name": "Denis Borovikov",
+    "email": "metaller.ru@gmail.com",
+    "url": "https://github.com/denisborovikov"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "moc `ha"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "gulpplugin"
+  ],
+  "dependencies": {
+    "css": "^2.2.0",
+    "gulp-util": "^3.0.1",
+    "through2": "^0.6.3"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  }
+}
