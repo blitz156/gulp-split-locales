@@ -20,7 +20,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "moc `ha"
+    "test": "mocha"
   },
   "files": [
     "index.js"

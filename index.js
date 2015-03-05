@@ -9,7 +9,7 @@ var PLUGIN_NAME = 'gulp-split-locales';
 
 var rules,
 	rule,
-	sheets = {},
+	sheets,
 	i;
 
 // Separate styles by locales
@@ -107,6 +107,7 @@ function splitLocales(stream, file) {
 	var obj = css.parse(file.contents.toString(), {source: file.path});
 
 	rules = obj.stylesheet.rules;
+    sheets = {};
 
 	for (i = 0; i < rules.length; i++) {
 		rule = rules[i];
@@ -138,7 +139,7 @@ module.exports = function() {
             return;
         }
 
-        file.contents = new Buffer(splitLocales(this, file))
+        file.contents = new Buffer(splitLocales(this, file));
 		this.push(file);
 		cb();
 	});
