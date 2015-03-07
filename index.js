@@ -4,6 +4,7 @@ var through = require('through2');
 var css = require('css');
 var gutil = require('gulp-util');
 var PluginError = gutil.PluginError;
+var path = require('path');
 
 var PLUGIN_NAME = 'gulp-split-locales';
 
@@ -105,7 +106,6 @@ function splitRules(rule) {
 
 function splitLocales(stream, file) {
 	var obj = css.parse(file.contents.toString(), {source: file.path});
-
 	rules = obj.stylesheet.rules;
     sheets = {};
 
@@ -117,7 +117,7 @@ function splitLocales(stream, file) {
 
 	for (var locale in sheets) {
 		stream.push(new gutil.File({
-			path    : locale + '.css',
+			path    : path.basename(file.path, '.css') + '-' + locale + '.css',
 			contents: new Buffer(css.stringify(sheets[locale]))
 		}));
 	}
@@ -139,7 +139,7 @@ module.exports = function() {
             return;
         }
 
-        file.contents = new Buffer(splitLocales(this, file));
+        file.contents = new Buffer(splitLocales(this, file))
 		this.push(file);
 		cb();
 	});
